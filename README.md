@@ -38,3 +38,18 @@ pip install pdfplumber sentence-transformers faiss-cpu requests
 
 ###2. 配置 API Key
 编辑 retriever.py，第 13 行填入你的 DeepSeek API Key：
+
+🏗️ 工作流程
+text
+复制
+用户提问
+   ↓
+向量嵌入 (sentence-transformers)
+   ↓
+FAISS 检索 (找到 Top-3 最相似片段)
+   ↓
+拼接 Prompt (问题 + 检索到的原文 + 防幻觉指令)
+   ↓
+DeepSeek 生成 (temperature=0.1)
+   ↓
+输出答案
